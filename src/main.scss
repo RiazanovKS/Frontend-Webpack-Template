@@ -1,0 +1,13 @@
+@import './submain.scss';
+.header {
+  color: #fff;
+  &__icon {
+    width: 100%;
+  }
+}
+
+body {
+  width: 100vh;
+  background-color: red;
+  color: white;
+}
