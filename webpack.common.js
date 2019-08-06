@@ -7,7 +7,7 @@ const rootAssetPath = path.join(__dirname, 'public/assets');
 const plugins = [
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
-    title: 'Output managment'
+    template: path.resolve(__dirname, 'public/application.html')
   })
 ];
 
@@ -41,7 +41,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [jsxLoader, cssLoader, fileLoader]
