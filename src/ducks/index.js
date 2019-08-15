@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { getFetchReducer } from './shared/fetch'
+import data from './app'
 
-export default combineReducers{
-
-}
+export default combineReducers({
+  data
+})

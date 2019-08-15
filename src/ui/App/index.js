@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useBindedActions } from 'utils/hooks'
+
 import Button from 'ui/shared/button'
 
 const App = () => {
