@@ -1,15 +1,15 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const rootAssetPath = path.join(__dirname, 'public/assets');
+const rootAssetPath = path.join(__dirname, 'public/assets')
 
 const plugins = [
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, 'public/application.html')
   })
-];
+]
 
 const jsxLoader = {
   test: /\.js(x)?$/,
@@ -17,13 +17,19 @@ const jsxLoader = {
   use: {
     loader: 'babel-loader'
   }
-};
+}
+
+const resolve = {
+  modules: ['node_modules', 'src'],
+  extensions: ['.js', '.jsx', '.json', '.scss', '.css', '.sass'],
+  alias: {}
+}
 
 const cssLoader = {
   test: /\.(s)?css$/,
   exclude: /node_modules/,
   use: ['css-loader', 'postcss-loader', 'sass-loader']
-};
+}
 
 const fileLoader = {
   test: /\.(wav|webm|mp3|woff|woff2|ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
@@ -34,16 +40,25 @@ const fileLoader = {
       context: rootAssetPath
     }
   }
-};
+}
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    polyfills: [
+      'core-js/stable',
+      'regenerator-runtime/runtime',
+      'core-js/modules/es.promise',
+      'core-js/modules/es.array.iterator'
+    ],
+    application: path.join(__dirname, 'src/index.js')
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/'
   },
+  resolve,
   module: {
     rules: [jsxLoader, cssLoader, fileLoader]
   },
@@ -56,4 +71,4 @@ module.exports = {
     compress: true,
     historyApiFallback: true
   }
-};
+}
