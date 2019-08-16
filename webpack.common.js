@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -9,9 +8,6 @@ const plugins = [
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, 'public/application.html')
-  }),
-  new webpack.ProvidePlugin({
-    _: ['lodash']
   })
 ]
 
@@ -62,12 +58,5 @@ module.exports = {
     rules: [jsxLoader, cssLoader, fileLoader]
   },
   devtool: 'eval-source-map',
-  plugins,
-  devServer: {
-    port: 3000,
-    host: '0.0.0.0',
-    hot: true,
-    compress: true,
-    historyApiFallback: true
-  }
+  plugins
 }

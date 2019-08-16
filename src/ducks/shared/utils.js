@@ -1,3 +1,5 @@
+import * as _ from 'utils/lodash'
+
 export const createNamedWrapperReducer = (reducerFunction, reducerName) => (
   state,
   action

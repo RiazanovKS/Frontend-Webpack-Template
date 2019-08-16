@@ -1,3 +1,4 @@
+import * as _ from 'utils/lodash'
 import { handleActions, createAction } from 'redux-actions'
 
 import { createNamedWrapperReducer } from './utils'

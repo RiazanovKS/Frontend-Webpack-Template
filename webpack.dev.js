@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
 
-const plugins = [new webpack.HotModuleReplacementPlugin()]
+const plugins = []
 
 const cssLoader = {
   test: /\.(s)?css$/,
