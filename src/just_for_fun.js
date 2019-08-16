@@ -1,5 +1,3 @@
-import * as _ from 'utils/lodash'
-
 const initialState = []
 
 const createReducer = (handlers, initialState) => (

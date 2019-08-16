@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -8,6 +9,9 @@ const plugins = [
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, 'public/application.html')
+  }),
+  new webpack.ProvidePlugin({
+    _: ['lodash']
   })
 ]
 
@@ -45,12 +49,7 @@ const fileLoader = {
 module.exports = {
   mode: 'development',
   entry: {
-    polyfills: [
-      'core-js/stable',
-      'regenerator-runtime/runtime',
-      'core-js/modules/es.promise',
-      'core-js/modules/es.array.iterator'
-    ],
+    polyfills: path.join(__dirname, 'src/utils/polyfills.js'),
     application: path.join(__dirname, 'src/index.js')
   },
   output: {
