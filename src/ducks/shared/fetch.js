@@ -1,6 +1,6 @@
 import { handleActions, createAction } from 'redux-actions'
 
-import { createReducer } from './utils'
+import { createNamedWrapperReducer } from './utils'
 
 import * as _ from 'utils/lodash'
 
@@ -30,11 +30,14 @@ const fetchReducer = handleActions(
   CONST.INITIAL_STATE
 )
 
-const getFetchActions = name => ({
+export const getFetchReducer = name =>
+  createNamedWrapperReducer(fetchReducer, name)
+
+export const getFetchActions = name => ({
   started: createAction(CONST.STARTED, undefined, () => ({ name })),
   success: createAction(CONST.SUCCESS, undefined, () => ({ name })),
-  failure: createAction(CONST.SUCCESS, undefined, () => ({ name })),
-  clear: createAction(CONST.SUCCESS, undefined, () => ({ name }))
+  failure: createAction(CONST.FAILURE, undefined, () => ({ name })),
+  clear: createAction(CONST.CLEAR, undefined, () => ({ name }))
 })
 
 const mirrorData = data => data
@@ -42,11 +45,9 @@ const mirrorData = data => data
 const getHandlerForm = (initialHandler, alertHandler = mirrorData) =>
   typeof initialHandler === 'function' ? initialHandler : alertHandler
 
-export const getFetchReducer = name => createReducer(fetchReducer, name)
-
 export const fetchData = config => async (dispatch, getState) => {
   const { name = true } = config
-  const actions = handleActions(name)
+  const actions = getFetchActions(name)
   const handleSuccess = getHandlerForm(config.handleSuccess)
   const handleError = getHandlerForm(config.handleError)
   const selector = getHandlerForm(config.selector)

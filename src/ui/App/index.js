@@ -1,11 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import { useBindedActions } from 'utils/hooks'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
-import Button from 'ui/shared/button'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
-const App = () => {
-  const onClick = () => {}
-  return <Button onClick={this.onClick} />
+import { useBindedAction } from 'utils/hooks'
+import { fetchMyData } from 'ducks/app/actions'
+import { getData } from 'ducks/app/selectors'
+
+import App from './App'
+
+const useBindedActions = () => ({
+  fetchData: useBindedAction(fetchMyData)
+})
+
+const useDataFromStore = () => ({
+  data: useSelector(getData)
+})
+
+const AppContainer = () => {
+  const { data } = useDataFromStore()
+  const [counter, setCounter] = useState(0)
+  const { fetchData } = useBindedActions()
+
+  useEffect(fetchData, [])
+
+  console.log({ data })
+  return <App setCounter={() => setCounter(counter + 1)} counter={counter} />
 }
 
-export default App
+export default AppContainer

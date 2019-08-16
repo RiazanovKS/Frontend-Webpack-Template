@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import data from './app'
+import dataReducer from 'ducks/app'
 
 export default combineReducers({
-  data
+  data: dataReducer
 })
