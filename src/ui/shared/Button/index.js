@@ -1,9 +1,14 @@
 import React from 'react'
+import classNames from 'classnames/bind'
 
-import './button.scss'
+import styles from './button.scss'
+
+let cx = classNames.bind(styles)
 
 const Button = props => (
-  <button onClick={props.onClick}>{props.children}</button>
+  <button className={cx(props.className.split(' '))} onClick={props.onClick}>
+    {props.children}
+  </button>
 )
 
 export default Button

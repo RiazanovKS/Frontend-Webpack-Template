@@ -5,7 +5,11 @@ const App = props => {
   return (
     <>
       <p>{props.counter}</p>
-      <Button onClick={props.setCounter}>Click me</Button>
+      <Button
+        className="button buttonRed buttonMargin"
+        onClick={props.setCounter}>
+        Increment
+      </Button>
     </>
   )
 }

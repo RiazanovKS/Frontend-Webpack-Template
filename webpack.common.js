@@ -28,7 +28,18 @@ const resolve = {
 const cssLoader = {
   test: /\.(s)?css$/,
   exclude: /node_modules/,
-  use: ['css-loader', 'postcss-loader', 'sass-loader']
+  use: [
+    {
+      loader: 'css-loader',
+      options: {
+        modules: {
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
+      }
+    },
+    'postcss-loader',
+    'sass-loader'
+  ]
 }
 
 const fileLoader = {
