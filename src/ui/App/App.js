@@ -1,16 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Button from 'ui/shared/Button'
 
-const App = props => {
+const App =   props => {
   return (
-    <>
-      <p>{props.counter}</p>
+    <div
+      style={{
+        margin: 'auto',
+        display: 'flex',
+        marginTop: '30vh',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
+      <p
+        style={{
+          fontSize: 40
+        }}>
+        {props.counter}
+      </p>
       <Button
-        className="button buttonRed buttonMargin"
+        className="button buttonRed button_red"
         onClick={props.setCounter}>
         Increment
       </Button>
-    </>
+    </div>
   )
 }
 
