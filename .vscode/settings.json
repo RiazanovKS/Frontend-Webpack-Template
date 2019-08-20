@@ -1,11 +1,13 @@
 {
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "postcss.validate": false,
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "files.associations": {
-    "*.css": "postcss"
-  }
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"postcss.validate": false,
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"files.associations": {
+		"*.css": "postcss"
+	},
+	"prettier.eslintIntegration": true,
+	"prettier.stylelintIntegration": true
 }

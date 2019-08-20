@@ -7,8 +7,8 @@ import store from 'utils/store'
 import AppContainer from 'ui/App'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AppContainer />
-  </Provider>,
-  document.getElementById('root')
+	<Provider store={store}>
+		<AppContainer />
+	</Provider>,
+	document.getElementById('root'),
 )
