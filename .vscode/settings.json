@@ -8,6 +8,8 @@
 	"files.associations": {
 		"*.css": "postcss"
 	},
-	"prettier.eslintIntegration": true,
-	"prettier.stylelintIntegration": true
+	"eslint.autoFixOnSave": true,
+	"[javascript]": {
+		"editor.formatOnSave": false
+	}
 }

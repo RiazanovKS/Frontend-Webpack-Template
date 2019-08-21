@@ -5,8 +5,8 @@ import reducers from 'ducks'
 
 const middleware = applyMiddleware(thunk)
 const enhancers = process.env.DEVELOPMENT
-  ? composeWithDevTools(middleware)
-  : middleware
+	? composeWithDevTools(middleware)
+	: middleware
 
 const store = createStore(reducers, enhancers)
 

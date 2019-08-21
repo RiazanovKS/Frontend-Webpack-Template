@@ -1,6 +1,6 @@
 {
-	"extends": ["stylelint-config-recommended", "prettier"],
-	"plugins": ["stylelint-order", "prettier"],
+	"extends": ["stylelint-config-recommended", "stylelint-prettier/recommended"],
+	"plugins": ["stylelint-order"],
 	"rules": {
 		"indentation": 2,
 		"rule-empty-line-before": "always",

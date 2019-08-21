@@ -6,8 +6,8 @@ export const FAILURE = `${prefix}/FAILURE`
 export const CLEAR = `${prefix}/CLEAR`
 
 export const INITIAL_STATE = {
-  isFetching: false,
-  isFetched: false,
-  payload: null,
-  errorMessage: null
+	isFetching: false,
+	isFetched: false,
+	payload: null,
+	errorMessage: null,
 }
