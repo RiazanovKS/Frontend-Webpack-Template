@@ -8,22 +8,22 @@ import { getData } from 'ducks/app/selectors'
 import App from './App'
 
 const useBindedActions = () => ({
-	fetchData: useBindedAction(fetchMyData),
+  fetchData: useBindedAction(fetchMyData),
 })
 
 const useDataFromStore = () => ({
-	data: useSelector(getData),
+  data: useSelector(getData),
 })
 
 const AppContainer = () => {
-	const { data } = useDataFromStore()
-	const [counter, setCounter] = useState(0)
-	const { fetchData } = useBindedActions()
+  const { data } = useDataFromStore()
+  const [counter, setCounter] = useState(0)
+  const { fetchData } = useBindedActions()
 
-	useEffect(fetchData, [])
+  useEffect(fetchData, [])
 
-	console.log({ data })
-	return <App setCounter={() => setCounter(counter + 1)} counter={counter} />
+  console.log({ data })
+  return <App setCounter={() => setCounter(counter + 1)} counter={counter} />
 }
 
 export default AppContainer
