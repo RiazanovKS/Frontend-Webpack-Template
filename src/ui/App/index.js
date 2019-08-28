@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { useBindedAction } from 'utils/hooks'
+import useBindedAction from 'utils/hooks'
 import { fetchMyData } from 'ducks/app/actions'
 import { getData } from 'ducks/app/selectors'
 

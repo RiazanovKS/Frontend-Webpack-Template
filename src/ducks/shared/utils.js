@@ -1,6 +1,6 @@
 import * as _ from 'utils/lodash'
 
-export const createNamedWrapperReducer = (reducerFunction, reducerName) => (
+const createNamedWrapperReducer = (reducerFunction, reducerName) => (
   state,
   action,
 ) => {
@@ -12,3 +12,5 @@ export const createNamedWrapperReducer = (reducerFunction, reducerName) => (
 
   return reducerFunction(state, action)
 }
+
+export default createNamedWrapperReducer

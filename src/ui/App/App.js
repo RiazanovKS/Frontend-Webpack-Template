@@ -17,9 +17,7 @@ const App = props => {
         }}>
         {props.counter}
       </p>
-      <Button
-        className="button buttonRed button_red"
-        onClick={props.setCounter}>
+      <Button className="button buttonRed" onClick={props.setCounter}>
         Increment
       </Button>
     </div>
