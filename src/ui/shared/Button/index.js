@@ -6,7 +6,10 @@ import styles from './button.scss'
 const cx = classNames.bind(styles)
 
 const Button = props => (
-  <button type="button" className={cx()} onClick={props.onClick}>
+  <button
+    type="button"
+    className={cx('button', 'buttonRed')}
+    onClick={props.onClick}>
     {props.children}
   </button>
 )
