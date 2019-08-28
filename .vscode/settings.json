@@ -1,15 +1,17 @@
 {
-	"css.validate": false,
-	"less.validate": false,
-	"scss.validate": false,
-	"postcss.validate": false,
-	"editor.formatOnSave": true,
-	"editor.formatOnPaste": true,
-	"files.associations": {
-		"*.css": "postcss"
-	},
-	"eslint.autoFixOnSave": true,
-	"[javascript]": {
-		"editor.formatOnSave": false
-	}
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "postcss.validate": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "files.associations": {
+    "*.css": "postcss",
+    ".stylelintrc": "json",
+    ".lintstagedrc": "json"
+  },
+  "eslint.autoFixOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  }
 }
